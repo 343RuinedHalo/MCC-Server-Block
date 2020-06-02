@@ -10,5 +10,6 @@ This application updates the Windows 'hosts' file (C:\Windows\System32\drivers\e
 
 This application supports remotely updating the local server list file to keep on top of changes made to the game server addresses (they change the IP addresses sometimes). If a server you were previously blocking becomes accessible in-game again then try updating the server list file.
 
+### [Download](https://github.com/343RuinedHalo/MCC-Server-Block/raw/master/MCC%20Server%20Block.exe)
 
 >***Warning: Blocking game servers may increase matchmaking search times depending on your location and the servers you block***
