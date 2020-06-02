@@ -26,25 +26,19 @@ namespace MCCServerBlock
             {
                 if (!File.Exists(LocalServerFile))
                 {
-                    using (var stream = new FileStream(LocalServerFile, FileMode.Create)) //write a placeholder
-                    {
-                        byte[] temp = Encoding.UTF7.GetBytes("temp");
-                        stream.Write(temp, 0, temp.Length);
-                        stream.Flush();
-                        stream.Close();
-                    }
-                    System.Threading.Thread.Sleep(100); //need to wait for the file system to update
-
                     //try to grab server list from github project
-                    if (UpdateCheck.CheckForUpdate() != RemoteFileUpdate.ReturnCode.Updated)
+                    if (UpdateCheck.CheckForUpdate(false) != RemoteFileUpdate.ReturnCode.Updated)
                     {
                         MessageBox.Show("Failed to download server list file\n\nCheck https://github.com/343RuinedHalo/MCC-Server-Block for updates or help\n\nApplication will now exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Application.Exit();
-                    }                    
+                    }
                 }
-                ReadServerListFile(ref ServerList);
-                UpdateServerList(ref ServerList);
-                SetServerListToUI(ref ServerList);
+                else
+                {
+                    ReadServerListFile(ref ServerList);
+                    UpdateServerList(ref ServerList);
+                    SetServerListToUI(ref ServerList);
+                }
             };
 
             ApplyButton.Click += (s, e) =>
@@ -65,7 +59,7 @@ namespace MCCServerBlock
 
             UpdateButton.Click += (s, e) =>
             {
-                var result = UpdateCheck.CheckForUpdate();
+                var result = UpdateCheck.CheckForUpdate(true);
                 if (result == RemoteFileUpdate.ReturnCode.LocalFileNotFound)
                 {
                     MessageBox.Show("Error with local server file\n\nApplication will now restart", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -258,20 +252,23 @@ namespace MCCServerBlock
             this.RemoteCRCFile = RemoteCRCFile;
         }
 
-        public ReturnCode CheckForUpdate()
+        public ReturnCode CheckForUpdate(bool LocalFileCheck)
         {
-            if (!File.Exists(LocalFile)) return ReturnCode.LocalFileNotFound;
+            if (LocalFileCheck && !File.Exists(LocalFile)) return ReturnCode.LocalFileNotFound;
             byte[] FileBuffer = new byte[2097152]; //2MB
-            int FileSize;
+            int FileSize = 0;
             byte[] buffer = new byte[0x1000]; //1kb temp buffer
 
-            //checksum local file
-            using (var stream = File.OpenRead(LocalFile))
+            if (LocalFileCheck)
             {
-                FileSize = stream.Read(FileBuffer, 0, (int)stream.Length);
-                stream.Close();
+                //checksum local file
+                using (var stream = File.OpenRead(LocalFile))
+                {
+                    FileSize = stream.Read(FileBuffer, 0, (int)stream.Length);
+                    stream.Close();
+                }
             }
-            uint LocalFileCRC = CRC32(FileBuffer, 0, FileSize);
+            uint LocalFileCRC = (LocalFileCheck ? CRC32(FileBuffer, 0, FileSize) : 0);
 
             //download remote checksum file
             try
@@ -298,7 +295,7 @@ namespace MCCServerBlock
 
             //compare client-side/server-side CRC's
             uint RemoteFileCRC = BitConverter.ToUInt32(FileBuffer, 0);
-            if (LocalFileCRC == RemoteFileCRC) return ReturnCode.NoUpdate;
+            if (LocalFileCheck) if (LocalFileCRC == RemoteFileCRC) return ReturnCode.NoUpdate;
 
             //download remote file
             try
