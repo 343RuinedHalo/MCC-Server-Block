@@ -1,0 +1,129 @@
+[
+  {
+    "Geography": "Asia Pacific",
+    "Region": "East Asia",
+    "Location": "Hong Kong",
+    "Hostnames": [
+      "pfmsqosprod.eastasia.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "Asia Pacific",
+    "Region": "Southeast Asia",
+    "Location": "Singapore",
+    "Hostnames": [
+      "xblcxplatqos-seas-9-18-2-0.cloudapp.net",
+      "pfmsqosprod.southeastasia.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "Australia",
+    "Region": "East Australia",
+    "Location": "New South Wales",
+    "Hostnames": [
+      "pfmsqosprod.australiaeast.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "Australia",
+    "Region": "Southeast Australia",
+    "Location": "Victoria",
+    "Hostnames": [
+      "xblcxplatqos-ause-9-18-2-0.cloudapp.net",
+      "pfmsqosprod.australiasoutheast.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "Brazil",
+    "Region": "South Brazil",
+    "Location": "Sao Paulo State",
+    "Hostnames": [
+      "xblcxplatqos-brs-9-18-2-0.cloudapp.net"
+    ]
+  },
+  {
+    "Geography": "Europe",
+    "Region": "North Europe",
+    "Location": "Ireland",
+    "Hostnames": [
+      "xblcxplatqos-neu-9-18-2-0.cloudapp.net",
+      "pfmsqosprod.northeurope.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "Europe",
+    "Region": "West Europe",
+    "Location": "Netherlands",
+    "Hostnames": [
+      "pfmsqosprod.westeurope.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "Japan",
+    "Region": "East Japan",
+    "Location": "Tokyo, Saitama",
+    "Hostnames": [
+      "xblcxplatqos-jae-9-18-2-0.cloudapp.net",
+      "pfmsqosprod.japaneast.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "Japan",
+    "Region": "West Japan",
+    "Location": "Osaka",
+    "Hostnames": [
+      "pfmsqosprod.japanwest.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "United States",
+    "Region": "Central US",
+    "Location": "Iowa",
+    "Hostnames": [
+      "xblcxplatqos-cus-9-18-2-0.cloudapp.net",
+      "pfmsqosprod.centralus.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "United States",
+    "Region": "East US",
+    "Location": "Virginia",
+    "Hostnames": [
+      "pfmsqosprod.eastus.cloudapp.azure.com",
+      "xblcxplatqos-eus-9-18-2-0.cloudapp.net"
+    ]
+  },
+  {
+    "Geography": "United States",
+    "Region": "East US 2",
+    "Location": "Virginia",
+    "Hostnames": [
+      "pfmsqosprod.eastus2.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "United States",
+    "Region": "North Central US",
+    "Location": "Illinois",
+    "Hostnames": [
+      "pfmsqosprod.northcentralus.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "United States",
+    "Region": "South Central US",
+    "Location": "Texas",
+    "Hostnames": [
+      "xblcxplatqos-scus-9-18-2-0.cloudapp.net",
+      "pfmsqosprod.southcentralus.cloudapp.azure.com"
+    ]
+  },
+  {
+    "Geography": "United States",
+    "Region": "West US",
+    "Location": "California",
+    "Hostnames": [
+      "pfmsqosprod.westus.cloudapp.azure.com"
+    ]
+  }
+]
