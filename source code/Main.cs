@@ -32,6 +32,12 @@ namespace MCCServerBlock
                         MessageBox.Show("Failed to download server list file\n\nCheck https://github.com/343RuinedHalo/MCC-Server-Block for updates or help\n\nApplication will now exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Application.Exit();
                     }
+                    else
+                    {
+                        ReadServerListFile(ref ServerList);
+                        UpdateServerList(ref ServerList);
+                        SetServerListToUI(ref ServerList);
+                    }
                 }
                 else
                 {
