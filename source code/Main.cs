@@ -12,8 +12,8 @@ namespace MCCServerBlock
     {
         private string HostsFile = "C:\\Windows\\System32\\drivers\\etc\\hosts";
         private string LocalServerFile = "servers.json";
-        private string RemoteServerFile = "https://github.com/343RuinedHalo/MCC-Server-Block/raw/master/servers/servers.json";
-        private string RemoteServerFileCRC = "https://github.com/343RuinedHalo/MCC-Server-Block/raw/master/servers/servers.crc";
+        private string RemoteServerFile = "https://raw.githubusercontent.com/343RuinedHalo/MCC-Server-Block/master/servers/servers.json";
+        private string RemoteServerFileCRC = "https://raw.githubusercontent.com/343RuinedHalo/MCC-Server-Block/master/servers/servers.crc";
         private List<Server> ServerList;
         private RemoteFileUpdate UpdateCheck;
 
